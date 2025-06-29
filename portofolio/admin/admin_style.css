@@ -1,0 +1,93 @@
+/* General & Layout */
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1e1e1e; /* Background gelap untuk halaman di dalam iframe */
+    color: #e0e0e0;
+}
+
+/* Wrapper untuk Dashboard Utama */
+.admin-wrapper {
+    display: flex;
+    height: 100%;
+}
+.admin-sidebar {
+    width: 240px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.admin-main-content {
+    flex-grow: 1;
+    position: relative; /* Kunci untuk scrolling iframe */
+}
+.content-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Header & Navigasi Sidebar */
+.sidebar-header { padding: 20px; background-color: #34495e; text-align: center; border-bottom: 1px solid #444; }
+.sidebar-header h2 { margin: 0; font-size: 22px; color: #fff; }
+.sidebar-header a { color: #1abc9c; text-decoration: none; font-size: 14px; }
+.sidebar-header a:hover { text-decoration: underline; }
+.sidebar-nav { list-style: none; padding: 10px 0; margin: 0; flex-grow: 1; overflow-y: auto; }
+.sidebar-nav li a { display: block; padding: 15px 20px; color: #ecf0f1; text-decoration: none; transition: background-color 0.2s, padding-left 0.2s; border-left: 4px solid transparent; }
+.sidebar-nav li a:hover { background-color: #34495e; padding-left: 25px; }
+.sidebar-nav li a.active { background-color: #1a252f; border-left-color: #ff4444; font-weight: bold; }
+.sidebar-footer { padding: 20px; text-align: center; font-size: 14px; background-color: #22303f; }
+.sidebar-footer p { margin: 0 0 10px 0; color: #bdc3c7; }
+.sidebar-footer a.logout-btn { display: block; background-color: #c0392b; color: white; padding: 10px; border-radius: 3px; text-decoration: none; transition: background-color 0.3s; }
+.sidebar-footer a.logout-btn:hover { background-color: #e74c3c; }
+
+/* Konten di dalam Iframe (Halaman Manage & Form) */
+.container { padding: 20px 30px; }
+.container h1 { font-size: 28px; font-weight: 600; color: #ffffff; margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid #444; padding-bottom: 15px; }
+.add-new { display: inline-block; margin-bottom: 25px; background: #28a745; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background-color 0.3s, transform 0.2s; }
+.add-new:hover { background: #218838; transform: translateY(-2px); }
+
+/* Tabel */
+table { width: 100%; border-collapse: collapse; background-color: #2c2c2c; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+thead th { background-color: #3a3a3a; color: #ffffff; padding: 15px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; }
+tbody tr { border-bottom: 1px solid #444; transition: background-color 0.2s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background-color: #383838; }
+tbody td { padding: 15px; vertical-align: middle; }
+td img { max-width: 120px; height: 70px; object-fit: cover; border-radius: 5px; border: 2px solid #555; }
+.actions a { text-decoration: none; font-weight: 600; padding: 5px 8px; border-radius: 4px; transition: all 0.2s; }
+.actions a.edit { color: #3498db; }
+.actions a.edit:hover { background-color: rgba(52, 152, 219, 0.1); }
+.actions a.delete { color: #e74c3c; }
+.actions a.delete:hover { background-color: rgba(231, 76, 60, 0.1); }
+.type-badge { padding: 4px 10px; border-radius: 12px; color: white; font-size: 12px; font-weight: bold; text-transform: capitalize; }
+.type-work { background-color: #3498db; }
+.type-organization { background-color: #9b59b6; }
+
+/* Form */
+.form-container { max-width: 900px; margin: 30px auto; background: #2c2c2c; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { margin-bottom: 15px; }
+.full-width { grid-column: 1 / -1; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #ccc; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; background-color: #3a3a3a; border: 1px solid #555; border-radius: 5px; box-sizing: border-box; color: #e0e0e0; transition: border-color 0.3s; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #ff4444; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-buttons button { background: #28a745; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+.form-buttons a { display: inline-block; margin-left: 10px; color: #ccc; text-decoration: none; }
+.current-image { max-width: 200px; height: auto; display: block; margin-top: 10px; border-radius: 5px; border: 2px solid #555; }
+.gallery-management-container { margin-top: 10px; padding: 15px; border: 1px solid #444; border-radius: 5px; }
+.gallery-grid { display: flex; flex-wrap: wrap; gap: 15px; }
+.gallery-item-admin { position: relative; }
+.gallery-item-admin img { width: 150px; height: 100px; object-fit: cover; border-radius: 4px; }
+.gallery-item-admin .delete-checkbox { position: absolute; top: 5px; right: 5px; width: 20px; height: 20px; }
